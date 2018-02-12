@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" class="map">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Co-op Communities - Mapping</title>
+    <meta name="description" content="">
+    <%= csrf_meta_tags %>
+    <%#<%= favicon_tag 'images/favicon.ico' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if Rails.application.secrets.maps_key %>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%=Rails.application.secrets.maps_key%>" type="text/javascript"></script>
+    <% end %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "assets" : [
+    {
+      "name": "Bewsey Park Pavillion",
+      "type": "Community Centre",
+      "description": "Troutbeck Avenue, Bewsey, Warrington, WA5 0AY",
+      "latitude": "53.40056194440851",
+      "longitude": "-2.606578887835667"
+    },
+    {
+      "name": "Capesthorne Community Centre",
+      "type": "Community Centre",
+      "description": "Orange Grove, Orford, Warrington, WA2 0BJ",
+      "latitude": "53.412853726015776",
+      "longitude": "-2.568376715344243"
+    },
+    {
+      "name": "Croft Youth & Activity Centre",
+      "type": "Community Centre",
+      "description": "Smithy Lane, Croft, Warrington, WA3 7HQ",
+      "latitude": "53.43501818835192",
+      "longitude": "-2.554287762426725"
+    }
+  ]
+}

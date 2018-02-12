@@ -13,3 +13,38 @@
 //= require jquery
 //= require rails-ujs
 //= require_tree .
+
+
+$(document).ready(function(){
+    $('#map').each(function(){
+      var map_container = $(this);
+      var bounds = new google.maps.LatLngBounds();
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14
+      });
+      $.ajax({
+        url: map_container.data('url'),
+        success: function( data, textStatus, jqXHR ){
+          $.each(data.assets, function(index, asset){
+            var latLng = new google.maps.LatLng(asset.latitude, asset.longitude);
+            var marker = new google.maps.Marker({
+              position: latLng,
+              title: asset.name
+            });
+            var infowindow = new google.maps.InfoWindow({
+              content: '<h1>' + asset.name + '</h1><p>' + asset.description + '</p>'
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+            bounds.extend(marker.getPosition());
+            marker.setMap(map);
+          });
+          map.fitBounds(bounds);
+        },
+        error: function(){
+          alert('Data failed to load');
+        }
+      })
+    });
+});
